@@ -94,17 +94,34 @@
 }
 #buttons input:hover{
     background-image: -moz-linear-gradient(top,#f8f8f8,#f1f1f1);
--moz-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-background-color: #f8f8f8;
-background-image: linear-gradient(top,#f8f8f8,#f1f1f1);
-background-image: -o-linear-gradient(top,#f8f8f8,#f1f1f1);
-border: 1px solid #c6c6c6;
-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-color: #222;
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    background-color: #f8f8f8;
+    background-image: linear-gradient(top,#f8f8f8,#f1f1f1);
+    background-image: -o-linear-gradient(top,#f8f8f8,#f1f1f1);
+    border: 1px solid #c6c6c6;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    color: #222;
 }
 
-#google input {
-    padding: 5px 8px 0 16px;
+#input_line {
+    display: grid;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+}
+
+#input_line :hover {
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2),0 0 0 1px rgba(0,0,0,0.08);
+}
+#input_box div:hover, #input_box input:hover {
+    box-shadow: none;
+}
+
+#input_box {
+    display: grid;
+    grid-template-areas: "search input key micro";
+    align-items: stretch;
+    grid-column-gap: 0px;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 0 0 1px rgba(0,0,0,0.08);
     border-radius: 24px;
     z-index: 3;
@@ -114,17 +131,41 @@ color: #222;
     font-size: small;
     padding: 5px 8px 0 16px;
 }
-#google input:hover{
-    box-shadow:0 3px 8px 0 rgba(0,0,0,0.2),0 0 0 1px rgba(0,0,0,0.08)
+
+#search {
+    grid-area: search;
+    font-size: 22px;
+    align-self: center;
+    justify-self: start;
 }
 
-#header a{
-     padding-right:10px;
-     color: rgba(0,0,0,0.87);
-     font-family:Arial, sans-serif;
-     font-size: 13px;
-     text-decoration:none;
- }
+#input_box input {
+    grid-area: input;
+    align-self:stretch;
+    justify-self:stretch;
+}
+#keyboard {
+    grid-area: key;
+    font-size: 22px;
+    width: 40px;
+    align-self: center;
+    justify-self: end;
+}
+#microphone {
+    grid-area: micro;
+    font-size: 22px;
+    width: 40px;
+    align-self: center;
+    justify-self: end;
+}
+
+#header a {
+    padding-right: 10px;
+    color: rgba(0,0,0,0.87);
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+}
 #header i {
     padding-right: 10px;
     font-size:22px;
