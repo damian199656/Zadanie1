@@ -125,8 +125,15 @@ color: #222;
      font-size: 13px;
      text-decoration:none;
  }
- #header a:hover{
-     opacity: .85;
-     text-decoration: underline;
- }
+#header i {
+    padding-right: 10px;
+    font-size:22px;
+}
+    #header i:hover {
+        opacity: .85;
+    }
+#header a:hover {
+    opacity: .85;
+    text-decoration: underline;
+}
 
