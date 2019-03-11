@@ -119,44 +119,42 @@
 
 #input_box {
     display: grid;
-    grid-template-areas: "search input key micro";
-    align-items: stretch;
     grid-column-gap: 0px;
+    align-content:center;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 0 0 1px rgba(0,0,0,0.08);
     border-radius: 24px;
     z-index: 3;
     border: none;
     height: 44px;
     width: 584px;
-    font-size: small;
     padding: 5px 8px 0 16px;
 }
 
 #search {
-    grid-area: search;
     font-size: 22px;
-    align-self: center;
-    justify-self: start;
+    grid-column-start: 1;
+    width: 40px;
 }
 
+
 #input_box input {
-    grid-area: input;
-    align-self:stretch;
-    justify-self:stretch;
+    grid-column-start: 2;
+    grid-column-end: 7;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: arial,sans-serif;
+    font-size: medium;
+    width:450px;
+    border:none;
 }
-#keyboard {
-    grid-area: key;
-    font-size: 22px;
-    width: 40px;
-    align-self: center;
-    justify-self: end;
-}
+
 #microphone {
-    grid-area: micro;
     font-size: 22px;
-    width: 40px;
-    align-self: center;
-    justify-self: end;
+    width: 80px;
+    grid-column-start: 8;
+    justify-self:end;
 }
 
 #header a {
