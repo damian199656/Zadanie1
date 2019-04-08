@@ -241,7 +241,7 @@ Vue.component('v-autocompleter', {
 	},
 	template:
 		`<div class="autocompleter">
-          <table class ="autocomplete-results">
+          <table class ="autocomplete-results" bgcolor="white">
              <tr class="autocomplete-result"
                    v-for="(result, i) in results" :key="i">{{ result }}</tr>
           </table>
