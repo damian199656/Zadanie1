@@ -8,153 +8,194 @@
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" type="text/javascript"></script>
     <link rel="stylesheet" href="google_css.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<style>
-    .main {
-        display: grid;
-        grid-template-areas: "google input_box input_box space icons";
-        height: 64px;
-        margin-top: 10px;
-        grid-column-gap: 0;
-        align-items: center;
-        justify-items: center;
-    }
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 
-    #google_left {
-        grid-area:google;
-        width: 92px;
-        height: 30px;
-        padding: 4px 28px 0 30px;
+    <script>
        
-    }
-    #google_left:hover{
-        pointer-events:none;
-    }
-    #input_line {
-        grid-area: input_box;
-        width: 630px;
-        height: 46px;
-    }
-    #space{
-        grid-area:space;
-        width:500px;
-    }
-    #icons {
-        float:right;
-        grid-area: icons;
-        width:75px;
-        display:grid;
-        grid-template-areas:"icon1 icon2";
-        align-items:center;
-        justify-items:center;
-            
-    }
-    #icons a{
-        grid-area:icon1;
-    }
-    #icons img {
-            grid-area: icon2;
-     }
+        $(document).ready(function () {
+            $(".rest").click(function () {
+                $(".result").hide();
+            });
+            $("#wszystko").click(function () {
+                $(".result").show();
+            });
+            if ($(location).attr('hash') != '#/wszystko') {
+                $(".result").hide();
+            }
+        });
+      
+    </script>
 
-    #sec_line {
-        display: flex;
-        flex-direction: row;
-
-        margin-left: 154px;
-        min-width: 782px;
-
-    }
-        #sec_line div {
-            font-family: arial,sans-serif;
-            font-size: 13px;
-            color: #777;
-            height: 15px;
-            line-height: 15px;
-            padding-top: 28px;
-            padding-bottom: 8px;
-            height: 15px;
-            line-height: 15px;
-            padding: 28px 16px 12px;
+    <style>
+        .main {
+            display: grid;
+            grid-template-areas: "google input_box input_box space icons";
+            height: 64px;
+            margin-top: 10px;
+            grid-column-gap: 0;
+            align-items: center;
+            justify-items: center;
         }
-            #sec_line div:hover {
+
+
+        #google_left {
+            grid-area: google;
+            width: 92px;
+            height: 30px;
+            padding: 4px 28px 0 30px;
+        }
+
+            #google_left:hover {
+                pointer-events: none;
+            }
+
+        #input_line {
+            grid-area: input_box;
+            width: 630px;
+            height: 46px;
+        }
+
+        #space {
+            grid-area: space;
+            width: 500px;
+        }
+
+        #icons {
+            float: right;
+            grid-area: icons;
+            width: 75px;
+            display: grid;
+            grid-template-areas: "icon1 icon2";
+            align-items: center;
+            justify-items: center;
+        }
+
+            #icons a {
+                grid-area: icon1;
+            }
+
+            #icons img {
+                grid-area: icon2;
+            }
+
+        #sec_line {
+            display: flex;
+            flex-direction: row;
+            margin-left: 154px;
+            min-width: 782px;
+        }
+
+            #sec_line div {
+                font-family: arial,sans-serif;
+                font-size: 13px;
+                color: #777;
+                height: 15px;
+                line-height: 15px;
+                padding-top: 28px;
+                padding-bottom: 8px;
+                height: 15px;
+                line-height: 15px;
+                padding: 28px 16px 12px;
+            }
+
+            #sec_line a:hover {
                 color: #222;
             }
-    #wszystko {
 
-        border-bottom: 3px solid #1A73E8;
-        color: #1A73E8;
-        font-weight: bold;
-    }
-    #wszystko:hover{
-        pointer-events:none;
-    }
-    #narz:hover {
-        background: -moz-linear-gradient(top,#eee,#e0e0e0);
-        -moz-box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.1);
-        border: 1px solid #d7d7d7;
-        box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.1);
-    }
+            #sec_line a {
+                text-decoration: none;
+                color: #777;
+            }
 
-    #tekst_wyszukiwania {
-        line-height: 43px;
-        color: #777;
-        padding-top: 0;
-        padding-bottom: 0;
-        padding-right: 8px;
-        font-family: arial,sans-serif;
-        font-size: small;
-        margin-left: 154px;
-    }
-    .result {
-        font-family: arial,sans-serif;
-        padding: 0 20px;
-        width: 592px;
-        height: 106px;
-        margin-left: 140px;
-        margin-top:20px;
-    }
-    .main_text {
-        font-size: 18px;
-        line-height: 1.33;
-        font-weight: normal;
-        color: #1a0dab;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-        .main_text:hover {
-            text-decoration: underline;
+        #wszystko {
+            border-bottom: 3px solid #1A73E8;
+            color: #1A73E8;
+            font-weight: bold;
         }
-    .link {
-        font-size: 14px;
-        line-height: 1.43;
-        color: #006621;
-        font-style: normal;
-        font-family: arial,sans-serif;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-    .desc {
-        line-height: 1.54;
-        word-wrap: break-word;
-        color: #545454;
-        font-family: arial,sans-serif;
-        font-size: small;
-        font-weight: normal;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-    .categories {
-        color: #777;
-        line-height: 1.54;
-        font-family: arial,sans-serif;
-        font-size: small;
-        font-weight: normal;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
 
+            #wszystko:hover {
+                pointer-events: none;
+            }
 
-</style>
+        #narz:hover {
+            background: -moz-linear-gradient(top,#eee,#e0e0e0);
+            -moz-box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.1);
+            border: 1px solid #d7d7d7;
+            box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.1);
+        }
+
+        #tekst_wyszukiwania {
+            line-height: 43px;
+            color: #777;
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-right: 8px;
+            font-family: arial,sans-serif;
+            font-size: small;
+            margin-left: 154px;
+        }
+
+        .result {
+            font-family: arial,sans-serif;
+            padding: 0 20px;
+            width: 592px;
+            height: 106px;
+            margin-left: 140px;
+            margin-top: 20px;
+        }
+
+        .main_text {
+            font-size: 18px;
+            line-height: 1.33;
+            font-weight: normal;
+            color: #1a0dab;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+            .main_text:hover {
+                text-decoration: underline;
+            }
+
+        .link {
+            font-size: 14px;
+            line-height: 1.43;
+            color: #006621;
+            font-style: normal;
+            font-family: arial,sans-serif;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        .desc {
+            line-height: 1.54;
+            word-wrap: break-word;
+            color: #545454;
+            font-family: arial,sans-serif;
+            font-size: small;
+            font-weight: normal;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        .categories {
+            color: #777;
+            line-height: 1.54;
+            font-family: arial,sans-serif;
+            font-size: small;
+            font-weight: normal;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        .line {
+            float: left;
+        }
+    </style>
 
 </head>
 <body>
@@ -162,7 +203,7 @@
 
     <div class="main">
         <img id="google_left" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" />
-        
+
         <div id="input_line">
             <div id="input_box">
 
@@ -181,39 +222,133 @@
         </div>
         <div id="space"></div>
         <div id="icons">
-            
-                <a href="https://www.google.pl/intl/pl/about/products?tab=wh">
-                    <i class="fab fa-buromobelexperte"></i>
-                </a>
-                <img src="konto.png" alt="Konto Google" style="width:32px;height:32px;" />
-            
+
+            <a href="https://www.google.pl/intl/pl/about/products?tab=wh">
+                <i class="fab fa-buromobelexperte"></i>
+            </a>
+            <img src="konto.png" alt="Konto Google" style="width:32px;height:32px;" />
+
         </div>
     </div>
 
     <div id="sec_line">
-        <div id="wszystko"><a style="color:#1A73E8;">Wszystko</a></div>
-        <div>Wiadomości</div>
-        <div>Grafika</div>
-        <div>Mapy</div>
-        <div>Filmy</div>
-        <div>Więcej</div>
-        <div>Ustawienia</div>
-        <div id="narz">Narzędzia</div>
+        <div class="nav-item" id="wszystko">
+            <router-link class="nav-link" :to="{ path: '/wszystko' }">
+                <a id="all" style="color:#1A73E8;">Wszystko</a>
+            </router-link>
+        </div>
+
+        <div class="nav-item">
+            <router-link class="nav-link" :to="{ path: '/wiadomoSci' }">
+                <a class="rest">Wiadomosci</a>
+            </router-link>
+        </div>
+        <div class="nav-item">
+            <router-link class="nav-link" :to="{ path: '/grafika' }">
+                <a class="rest">Grafika</a>
+            </router-link>
+        </div>
+        <div class="nav-item">
+            <router-link class="nav-link" :to="{ path: '/zakupy' }">
+                <a class="rest">Zakupy</a>
+            </router-link>
+        </div>
+        <div class="nav-item">
+            <router-link class="nav-link" :to="{ path: '/filmy' }">
+                <a class="rest">Filmy</a>
+            </router-link>
+        </div>
+        <div class="nav-item">
+            <router-link class="nav-link" :to="{ path: '/wiEcej' }">
+                <a class="rest">Wiecej</a>
+            </router-link>
+        </div>
+        <div class="nav-item">
+            <router-link class="nav-link" :to="{ path: '/ustawienia' }">
+                <a class="rest">Ustawienia</a>
+            </router-link>
+        </div>
+        <div class="nav-item" id="narz">
+            <router-link class="nav-link" :to="{ path: '/narzedzia' }">
+                <a class="rest">Narzedzia</a>
+            </router-link>
+        </div>
+        <div class="line"></div>
+        <div class="container col-10">
+            <div class="jumbotron mt-3">
+                <router-view keep-alive></router-view>
+            </div>
+        </div>
     </div>
 
-    <div id="tekst_wyszukiwania">Około 234 000 000 wyników (0,28 s) </div>
 
-    <div class="result">
-        <p class="main_text">FlashScore.pl: wyniki piłki nożnej, wyniki na żywo</p>
-        <p class="link">
-            https://www.flashscore.pl/
-        </p>
-        <p class="desc">Serwis wyników na żywo i rezultatów FlashScore.pl zapewnia wyniki meczów z ponad 1000 lig piłkarskich. Wyniki na żywo, rezultaty, tabele, składy i szczegóły ... </p>
-        <span class="categories">Hokej · ‎Koszykówka · ‎Tenis · ‎Siatkówka</span>
-    </div>
-    
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+                <div id="tekst_wyszukiwania">Około 234 000 000 wyników (0,28 s) </div>
+
+                <div class="result">
+                    <p class="main_text">FlashScore.pl: wyniki piłki nożnej, wyniki na żywo</p>
+                    <p class="link">
+                        https://www.flashscore.pl/
+                    </p>
+                    <p class="desc">Serwis wyników na żywo i rezultatów FlashScore.pl zapewnia wyniki meczów z ponad 1000 lig piłkarskich. Wyniki na żywo, rezultaty, tabele, składy i szczegóły ... </p>
+                    <span class="categories">Hokej · ‎Koszykówka · ‎Tenis · ‎Siatkówka</span>
+                </div>
+
+
+    <template id="wiadomosci">
+        <transition name="component-fade" mode="out-in" appear>
+            <div class="container">
+                <h1 class="container-wiadomosci abs">Hello Wiadomości!</h1>
+            </div>
+        </transition>
+    </template>
+    <template id="grafika">
+        <transition name="component-fade" appear>
+            <div class="container">
+                <h1 class="container-grafika abs">Hello Grafika!</h1>
+            </div>
+        </transition>
+    </template>
+    <template id="zakupy">
+        <transition name="component-fade" appear>
+            <div class="container">
+                <h1 class="container-zakupy abs">Hello Zakupy!</h1>
+            </div>
+        </transition>
+    </template>
+    <template id="filmy">
+        <transition name="component-fade" appear>
+            <div class="container">
+                <h1 class="container-filmy abs">Hello Filmy!</h1>
+            </div>
+        </transition>
+    </template>
+    <template id="wiecej">
+        <transition name="component-fade" appear>
+            <div class="container">
+                <h1 class="container-wiecej abs">Hello Więcej!</h1>
+            </div>
+        </transition>
+    </template>
+    <template id="ustawienia">
+        <transition name="component-fade" appear>
+            <div class="container">
+                <h1 class="container-ustawienia abs">Hello Ustawienia!</h1>
+            </div>
+        </transition>
+    </template>
+    <template id="narzedzia">
+        <transition name="component-fade" appear>
+            <div class="container">
+                <h1 class="ustawienia-narzedzia abs">Hello Narzędzia!</h1>
+            </div>
+        </transition>
+    </template>
+
+
     <script src="animals.js" type="text/javascript"></script>
+    <script src="router.js" type="text/javascript"></script>
+
 </body>
 </html>
