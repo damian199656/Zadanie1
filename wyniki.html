@@ -26,6 +26,9 @@
             if ($(location).attr('hash') != '#/wszystko') {
                 $(".result").hide();
             }
+            if ($(location).attr('hash') == '#/') {
+                $(".result").show();
+            }
         });
       
     </script>
